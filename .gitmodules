@@ -1,0 +1,3 @@
+[submodule "repos/mitmproxy-retendo"]
+    path = repos/mitmproxy-retendo
+    url = https://github.com/RetendoNetwork/mitmproxy-retendo
