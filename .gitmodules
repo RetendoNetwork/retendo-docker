@@ -1,3 +1,6 @@
 [submodule "repos/mitmproxy-retendo"]
-    path = repos/mitmproxy-retendo
-    url = https://github.com/RetendoNetwork/mitmproxy-retendo
+    	path = repos/mitmproxy-retendo
+    	url = https://github.com/RetendoNetwork/mitmproxy-retendo
+[submodule "repos/SSSL_DNS"]
+	path = repos/SSSL_DNS
+	url = https://github.com/RetendoNetwork/SSSL-DNS
