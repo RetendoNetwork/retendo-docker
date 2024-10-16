@@ -68,6 +68,9 @@ git config --local submodule.recurse true
 print_stage "Checking prerequisites."
 check_prerequisites
 
+print_stage "Checking the latest update of the server."
+./scripts/setup-updates.sh
+
 print_stage "Check updates from all submodules."
 ./scripts/setup-submodules.sh
 
