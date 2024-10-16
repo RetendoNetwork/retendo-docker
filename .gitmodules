@@ -4,3 +4,18 @@
 [submodule "repos/SSSL_DNS"]
 	path = repos/SSSL_DNS
 	url = https://github.com/RetendoNetwork/SSSL-DNS
+[submodule "repos/SSSL"]
+	path = repos/SSSL
+	url = https://github.com/RetendoNetwork/SSSL
+[submodule "repos/nintendo-wiki"]
+	path = repos/nintendo-wiki
+	url = https://github.com/RetendoNetwork/nintendo-wiki
+[submodule "repos/website"]
+	path = repos/website
+	url = https://github.com/RetendoNetwork/website
+[submodule "repos/BOSS"]
+	path = repos/BOSS
+	url = https://github.com/RetendoNetwork/BOSS
+[submodule "repos/Innoverse-patcher"]
+	path = repos/Innoverse-patcher
+	url = https://github.com/RetendoNetwork/Innoverse-patcher
