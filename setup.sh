@@ -74,8 +74,8 @@ print_stage "Checking the latest update of the server."
 print_stage "Check updates from all submodules."
 ./scripts/setup-submodules.sh
 
-print_stage "Check the database connection."
-./scripts/database/postgres-init.sh
+# print_stage "Compiling the Innoverse-patcher."
+# ./repos/Innoverse-patcher/build.sh
 
 print_title "Retendo Network server setup finished"
 print_success "Setup is completed !"

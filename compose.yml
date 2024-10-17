@@ -1,0 +1,25 @@
+version: '3'
+name: 'retendo-network'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: ./config/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+      - type: bind
+        source: ./config
+        target: /etc/nginx/conf.d/
+        read_only: true
+    depends_on:
+      - node-app
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge

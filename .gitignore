@@ -1,2 +1,7 @@
 # SSSL certificates
 /files/CACERT_NINTENDO_CA_G3.der
+
+# Other
+/repos/Innoverse-patcher/Innoverse-patcher.wps
+/repos/Innoverse-patcher/Innoverse-patcher.elf
+/repos/Innoverse-patcher/Innoverse-patcher/build

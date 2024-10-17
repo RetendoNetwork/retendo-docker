@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Credits : MatthewL246
+
 # Usage:
 # # shellcheck source=./framework.sh
 # source "$(dirname "$(realpath "$0")")/framework.sh"
@@ -125,8 +127,8 @@ error_handler() {
         fi
         echo "- Check the script output and stack trace above for more details about the error."
         echo "- Research the error message shown above the stack trace and try to find a solution."
-        echo "- Search previously-reported issues at https://github.com/MatthewL246/pretendo-docker/issues?q=is%3Aissue."
-        echo "- If you believe this is a bug or need help, please create an issue at https://github.com/MatthewL246/pretendo-docker/issues/new."
+        echo "- Search previously-reported issues at https://github.com/RetendoNetwork/retendo-docker/issues?q=is%3Aissue."
+        echo "- If you believe this is a bug or need help, please create an issue at https://github.com/RetendoNetwork/retendo-docker/issues/new."
         echo "${term_bold}Make sure to include ${term_magenta}${term_underline}ALL of the script's output${term_reset}${term_bold} shown above this help text when creating an issue.${term_reset}"
     fi
 
