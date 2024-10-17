@@ -1,5 +1,6 @@
 name: 'retendo-network'
 services:
+
   nginx:
     image: nginx:mainline-alpine
     restart: always
@@ -11,11 +12,21 @@ services:
         target: /etc/nginx/nginx.conf
         read_only: true
       - type: bind
-        source: ./config/nginx/
+        source: ./config/nginx
         target: /etc/nginx/conf.d/
+        read_only: true
     networks:
       default:
       internal:
+
+  boss:
+    build: ./repos/BOSS
+    restart: always
+    ports:
+      - 127.0.0.1:9233:9233
+    networks:
+      internal:
+    command: ["node", "--inspect=0.0.0.0:9233", "."]
 
 networks:
   internal:

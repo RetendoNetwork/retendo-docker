@@ -77,5 +77,8 @@ print_stage "Check updates from all submodules."
 # print_stage "Compiling the Innoverse-patcher."
 # ./repos/Innoverse-patcher/build.sh
 
+print_stage "Setting up all containers."
+./scripts/server-containers.sh
+
 print_title "Retendo Network server setup finished"
 print_success "Setup is completed !"
