@@ -16,3 +16,6 @@
 [submodule "repos/Innoverse-patcher"]
 	path = repos/Innoverse-patcher
 	url = https://github.com/RetendoNetwork/Innoverse-patcher
+[submodule "repos/BOSS"]
+	path = repos/BOSS
+	url = https://github.com/RetendoNetwork/BOSS
