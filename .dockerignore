@@ -1,2 +1,6 @@
 # SSSL certificates
 /files/CACERT_NINTENDO_CA_G3.der
+
+# config files
+/config/boss-config.json
+/config/website-config.json
