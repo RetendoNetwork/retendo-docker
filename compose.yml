@@ -3,7 +3,7 @@ services:
 
   nginx:
     image: nginx:mainline-alpine
-    restart: always
+    restart: no
     ports:
       - "80:80"
     volumes:
@@ -21,7 +21,7 @@ services:
 
   boss:
     image: node:18-alpine
-    restart: always
+    restart: no
     working_dir: /app
     volumes:
       - ./repos/BOSS:/app 
@@ -34,7 +34,7 @@ services:
 
   nintendo-wiki:
     image: node:18-alpine
-    restart: always
+    restart: no
     working_dir: /app
     volumes:
       - ./repos/nintendo-wiki:/app 
@@ -46,22 +46,23 @@ services:
       internal:
 
   website:
-    image: node:18-alpine
-    restart: always
+    image: node:20-alpine
+    restart: no
     working_dir: /app
     volumes:
       - ./repos/website:/app 
       - /app/node_modules
+      - .:/usr/src/app
     ports:
-      - "3000:3000"
-    command: "npm install && npm run start"
+      - "82:82"
+    command: sh -c "npm install && npm run start"
     networks:
       internal:
 
   mitmproxy-retendo:
     image: mitmproxy/mitmproxy:latest
     # build: ./repos/mitmproxy-retendo
-    restart: always
+    restart: no
     ports:
       - 8080:8080
       - 127.0.0.1:8081:8081

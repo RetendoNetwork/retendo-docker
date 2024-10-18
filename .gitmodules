@@ -13,6 +13,9 @@
 [submodule "repos/Innoverse-patcher"]
 	path = repos/Innoverse-patcher
 	url = https://github.com/RetendoNetwork/Innoverse-patcher
+[submodule "repos/website"]
+	path = repos/website
+	url = https://github.com/RetendoNetwork/website
 [submodule "repos/SSSL-DNS"]
 	path = repos/SSSL-DNS
 	url = https://github.com/RetendoNetwork/SSSL-DNS
