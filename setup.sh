@@ -80,6 +80,9 @@ print_stage "Check updates from all submodules."
 print_stage "Setting up all containers."
 ./scripts/server-containers.sh
 
+print_stage "Building all server config"
+./scripts/setup-building-config.sh
+
 print_stage "Starting the Retendo Network server."
 docker compose up -d --build
 

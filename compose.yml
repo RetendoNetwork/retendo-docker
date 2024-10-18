@@ -25,14 +25,13 @@ services:
     working_dir: /app
     volumes:
       - ./repos/BOSS:/app 
+      - ./config:/app/config
       - /app/node_modules
     ports:
       - "9233:9233"
     command: sh -c "npm install && npm run build && npm run start"
     networks:
       internal:
-    environment:
-      NODE_ENV: development 
 
 networks:
   internal:
