@@ -20,13 +20,19 @@ services:
       internal:
 
   boss:
-    build: ./repos/BOSS
+    image: node:18-alpine
     restart: always
+    working_dir: /app
+    volumes:
+      - ./repos/BOSS:/app 
+      - /app/node_modules
     ports:
       - "9233:9233"
+    command: sh -c "npm install && npm run build && npm run start"
     networks:
       internal:
-    command: ["node", "--inspect=0.0.0.0:9233", "."]
+    environment:
+      NODE_ENV: development 
 
 networks:
   internal:
