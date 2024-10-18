@@ -6,3 +6,4 @@ set_description "This file is for building all config for Retendo Network server
 parse_arguments "$@"
 
 node ./config/boss-config.js
+node ./config/website-config.js
