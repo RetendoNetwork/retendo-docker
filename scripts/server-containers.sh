@@ -7,6 +7,3 @@ parse_arguments "$@"
 
 docker compose pull
 docker compose build
-docker compose up
-
-print_sucesss "Nginx and other all server is active."

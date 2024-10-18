@@ -23,7 +23,7 @@ services:
     build: ./repos/BOSS
     restart: always
     ports:
-      - 127.0.0.1:9233:9233
+      - "9233:9233"
     networks:
       internal:
     command: ["node", "--inspect=0.0.0.0:9233", "."]
