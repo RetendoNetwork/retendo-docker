@@ -32,6 +32,23 @@ services:
     networks:
       internal:
 
+  mitmproxy-retendo:
+    image: mitmproxy/mitmproxy:latest
+    # build: ./repos/mitmproxy-retendo
+    restart: always
+    ports:
+      - 8080:8080
+      - 127.0.0.1:8081:8081
+    volumes:
+      - type: volume
+        source: mitmproxy-retendo-data
+        target: /home/mitmproxy/.mitmproxy
+    command: mitmweb --web-host 0.0.0.0
+    tty: true
+
+volumes:
+  mitmproxy-retendo-data:
+
 networks:
   internal:
     driver: bridge
