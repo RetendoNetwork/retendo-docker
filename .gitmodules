@@ -1,21 +1,18 @@
 [submodule "repos/mitmproxy-retendo"]
     path = repos/mitmproxy-retendo
     url = https://github.com/RetendoNetwork/mitmproxy-retendo
-[submodule "repos/SSSL-DNS"]
-	path = repos/SSSL-DNS
-	url = https://github.com/RetendoNetwork/SSSL-DNS
 [submodule "repos/SSSL"]
 	path = repos/SSSL
 	url = https://github.com/RetendoNetwork/SSSL
 [submodule "repos/nintendo-wiki"]
 	path = repos/nintendo-wiki
 	url = https://github.com/RetendoNetwork/nintendo-wiki
+[submodule "repos/BOSS"]
+	path = repos/BOSS
+	url = https://github.com/RetendoNetwork/BOSS
 [submodule "repos/website"]
 	path = repos/website
 	url = https://github.com/RetendoNetwork/website
 [submodule "repos/Innoverse-patcher"]
 	path = repos/Innoverse-patcher
 	url = https://github.com/RetendoNetwork/Innoverse-patcher
-[submodule "repos/BOSS"]
-	path = repos/BOSS
-	url = https://github.com/RetendoNetwork/BOSS
