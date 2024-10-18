@@ -25,7 +25,6 @@ services:
     working_dir: /app
     volumes:
       - ./repos/BOSS:/app 
-      - ./config:/app/config
       - /app/node_modules
     ports:
       - "9233:9233"

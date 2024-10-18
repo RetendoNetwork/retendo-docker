@@ -8,4 +8,4 @@ const config = {
 };
 
 const jsonConfig = JSON.stringify(config, null, 2);
-fs.writeFileSync('config/website-config.json', jsonConfig);
+fs.writeFileSync('repos/website/website-config.json', jsonConfig);

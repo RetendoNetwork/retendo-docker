@@ -7,4 +7,4 @@ const config = {
 };
 
 const jsonConfig = JSON.stringify(config, null, 2);
-fs.writeFileSync('config/boss-config.json', jsonConfig);
+fs.writeFileSync('repos/BOSS/boss-config.json', jsonConfig);
