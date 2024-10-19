@@ -21,7 +21,7 @@ services:
 
   mongodb:
     image: mongo:latest
-    restart: always
+    restart: no
     ports:
       - 127.0.0.1:27017:27017
     volumes:
@@ -34,8 +34,22 @@ services:
         target: /data/db
     networks:
       internal:
-    dns: 172.20.0.200
     command: --config "/etc/mongod.conf" --replSet rs
+
+  mongo-express:
+    image: mongo-express:latest
+    depends_on:
+      - mongodb
+    restart: no
+    ports:
+      - 127.0.0.1:8082:8082
+    networks:
+      internal:
+    environment:
+      - PORT=8082
+      - ME_CONFIG_BASICAUTH=false
+      - ME_CONFIG_MONGODB_URL=mongodb://mongodb:27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
 
   boss:
     image: node:18-alpine
