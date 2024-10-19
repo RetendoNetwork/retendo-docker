@@ -21,4 +21,4 @@
 	url = https://github.com/RetendoNetwork/SSSL-DNS
 [submodule "repos/account"]
 	path = repos/account
-	url = https://github.com/RetendoNetwork/account
+	url = https://github.com/RetendoNetwork/account.git
