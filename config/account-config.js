@@ -12,6 +12,12 @@ const config = {
         }
     },
 
+    s3: {
+        endpoint: "nyc3.digitaloceanspaces.com",
+        key: "ACCESS_KEY",
+        secret: "ACCESS_SECRET"
+    },
+
     cdn: {
         base_url: "https://cdn.retendo.online"
     }
