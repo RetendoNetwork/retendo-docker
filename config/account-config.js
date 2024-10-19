@@ -9,7 +9,8 @@ const config = {
     db: {
         connection_string: "mongodb://127.0.0.1:27017/retendo_boss?replicaSet=rs",
         options: {
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useUnifiedTopology: true
         }
     },
 
