@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const config = {
     config: {
-        port: 86,
+        port: 86
     },
 
     db: {
