@@ -2,8 +2,7 @@ const fs = require('fs');
 
 const config = {
     config: {
-        port: 81,
-        url: "retendo.online"
+        port: 83
     },
 };
 
