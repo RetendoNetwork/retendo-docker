@@ -7,6 +7,6 @@ parse_arguments "$@"
 
 node ./config/boss-config.js
 node ./config/website-config.js
-node .config/account-config.js
+node ./config/account-config.js
 
 print_success "All the configs have been built !"
