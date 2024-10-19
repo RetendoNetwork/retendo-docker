@@ -20,7 +20,8 @@ const config = {
     },
 
     cdn: {
-        base_url: "https://cdn.retendo.online"
+        base_url: "https://cdn.retendo.online",
+        disk_path: ""
     }
 };
 
