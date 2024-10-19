@@ -19,6 +19,24 @@ services:
       default:
       internal:
 
+  mongodb:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 127.0.0.1:27017:27017
+    volumes:
+      - type: bind
+        source: ./config/mongod.conf
+        target: /etc/mongod.conf
+        read_only: true
+      - type: volume
+        source: mongodb-database
+        target: /data/db
+    networks:
+      internal:
+    dns: 172.20.0.200
+    command: --config "/etc/mongod.conf" --replSet rs
+
   boss:
     image: node:18-alpine
     restart: no
@@ -89,6 +107,7 @@ services:
 
 volumes:
   mitmproxy-retendo-data:
+  mongodb-database:
 
 networks:
   internal:
