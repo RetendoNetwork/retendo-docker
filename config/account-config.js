@@ -5,7 +5,7 @@ const config = {
         port: 83
     },
     mongoose: {
-        connection_string: "mongodb://localhost:27017/retendo_account",
+        connection_string: "mongodb://127.0.0.1:27017/retendo_boss?replicaSet=rs",
         options: {
             useNewUrlParser: true
         }
