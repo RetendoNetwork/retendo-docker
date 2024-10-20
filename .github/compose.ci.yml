@@ -1,0 +1,35 @@
+services:
+  mitmproxy-retendo:
+    restart: no
+    ports: !reset []
+  nginx:
+    restart: no
+    ports: !reset []
+  mongodb:
+    ports: !reset []
+  mongo-express:
+    restart: no
+    ports: !reset []
+  redis:
+    restart: no
+    ports: !reset []
+  redis-commander:
+    restart: no
+    ports: !reset []
+  postgres:
+    ports: !reset []
+  adminer:
+    restart: no
+    ports: !reset []
+  account:
+    restart: no
+    ports: !reset []
+  website:
+    restart: no
+    ports: !reset []
+  friends:
+    restart: no
+    ports: !reset []
+  boss:
+    restart: no
+    ports: !reset []
