@@ -88,7 +88,23 @@ services:
       internal:
     environment:
       - POSTGRES_USER=postgres_retendo
-      - POSTGRES_PASSWORD=IhLlIHXf1VcIA4wa8IC7APJmMmq8QMBH
+      - POSTGRES_PASSWORD=
+
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: no
+    ports:
+      - 127.0.0.1:8084:8084
+    volumes:
+      - type: volume
+        source: mailpit-mail
+        target: /data
+    networks:
+      internal:
+    environment:
+      - MP_SMTP_BIND_ADDR=0.0.0.0:1025
+      - MP_UI_BIND_ADDR=0.0.0.0:8084
+      - MP_DATABASE=/data/mailpit.db
 
   adminer:
     image: adminer:latest
@@ -200,13 +216,13 @@ services:
       - PN_FRIENDS_GRPC_SERVER_PORT=5001
       - PN_FRIENDS_AUTHENTICATION_SERVER_PORT=6000
       - PN_FRIENDS_SECURE_SERVER_PORT=6001
-      - PN_FRIENDS_ACCOUNT_GRPC_API_KEY=MF9bCkQdmpF0oKUcIbf8CAngzs9acba5
-      - PN_FRIENDS_CONFIG_DATABASE_URI=postgres://postgres_retendo:IhLlIHXf1VcIA4wa8IC7APJmMmq8QMBH@postgres/friends?sslmode=disable
-      - PN_FRIENDS_CONFIG_AUTHENTICATION_PASSWORD=ad3FGj3icZDfflB8tHxltD7mBFWoipTe
-      - PN_FRIENDS_CONFIG_SECURE_PASSWORD=mgroi3eTiw8Yr6E8BragB5jjrvmhQeV2
-      - PN_FRIENDS_CONFIG_GRPC_API_KEY=5leuVKifgvMXYSdeBOjV307RdERZ7j2l
-      - PN_FRIENDS_CONFIG_AES_KEY=BBBAAC0FD454C83B38A91A123FD98DCE217E847992739D3F4950B4882302293C
-      - PN_FRIENDS_SECURE_SERVER_HOST=123.44.55.66
+      - PN_FRIENDS_ACCOUNT_GRPC_API_KEY=
+      - PN_FRIENDS_CONFIG_DATABASE_URI=
+      - PN_FRIENDS_CONFIG_AUTHENTICATION_PASSWORD=
+      - PN_FRIENDS_CONFIG_SECURE_PASSWORD=
+      - PN_FRIENDS_CONFIG_GRPC_API_KEY=
+      - PN_FRIENDS_CONFIG_AES_KEY=
+      - PN_FRIENDS_SECURE_SERVER_HOST=
 
   pikmin-3:
     build: ./repos/pikmin-3
@@ -228,16 +244,17 @@ services:
       - PN_PIKMIN3_SECURE_SERVER_PORT=6011
       - PN_PIKMIN3_ACCOUNT_GRPC_HOST=account
       - PN_PIKMIN3_ACCOUNT_GRPC_PORT=5000
-      - PN_PIKMIN3_ACCOUNT_GRPC_API_KEY=MF9bCkQdmpF0oKUcIbf8CAngzs9acba5
-      - PN_PIKMIN3_POSTGRES_URI=postgres://postgres_retendo:TSWBfHLL8ThX3OrJzF7akY37b7wPXJEg@postgres/pikmin3?sslmode=disable
-      - PN_PIKMIN3_KERBEROS_PASSWORD=TSWBfHLL8ThX3OrJzF7akY37b7wPXJEg
-      - PN_PIKMIN3_SECURE_SERVER_HOST=123.44.55.66
+      - PN_PIKMIN3_ACCOUNT_GRPC_API_KEY=
+      - PN_PIKMIN3_POSTGRES_URI=
+      - PN_PIKMIN3_KERBEROS_PASSWORD=
+      - PN_PIKMIN3_SECURE_SERVER_HOST=
 
 
 volumes:
   mitmproxy-retendo-data:
   mongodb-database:
   redis-data:
+  mailpit-mail:
   postgres-database:
 
 networks:
