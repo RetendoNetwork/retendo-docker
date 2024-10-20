@@ -55,6 +55,17 @@ add your user to the docker group: https://docs.docker.com/engine/install/linux-
     fi
 }
 
+reconfigure=false
+
+setup_games_env() {
+    if [[ -n "$reconfigure" ]]; then
+        echo "Please enter the IP address of your Retendo Network server."
+        read -r server_ip
+    fi
+
+    ./scripts/setup-games-env.sh ${server_ip:+--server-ip "$server_ip"} ${force:+--force} ${reconfigure:+--no-environment}
+}
+
 # shellcheck source=./scripts/framework.sh
 source "$(dirname "$(realpath "$0")")/scripts/framework.sh"
 set_description "This is the setup script for your self-hosted Retendo Network server."
@@ -73,6 +84,9 @@ print_stage "Checking the latest update of the server."
 
 print_stage "Check updates from all submodules."
 ./scripts/setup-submodules.sh
+
+print_stage "Configure the games environment."
+setup_games_env
 
 # print_stage "Compiling the Innoverse-patcher."
 # ./repos/Innoverse-patcher/build.sh
