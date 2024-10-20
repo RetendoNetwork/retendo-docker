@@ -14,7 +14,7 @@ postgres_password=$(generate_password 32)
 compose_file="compose.yml"
 
 if [ -f "$compose_file" ]; then
-    sed -i.bak "s/POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD=${postgres_password}/" "$compose_file"
+    sed -i "s/POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD=${postgres_password}/" "$compose_file"
 else
     print_error "The file $compose_file doesn't exist."
 fi
