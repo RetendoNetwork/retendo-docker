@@ -3,6 +3,7 @@
 
 # build folder
 /repos/BOSS/dist
+/repos/account/dist
 
 # config files
 /repos/BOSS/boss-config.json
