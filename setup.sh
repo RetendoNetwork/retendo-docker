@@ -99,7 +99,6 @@ print_stage "Building all server config."
 
 print_stage "Creating all Retendo Database."
 ./scripts/database/mongodb-containers.sh
-# ./scripts/database/postgres-password.sh
 
 print_stage "Starting the Retendo Network server."
 docker compose up -d --build
