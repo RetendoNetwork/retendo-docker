@@ -1,11 +1,2 @@
 # SSSL certificates
 /files/CACERT_NINTENDO_CA_G3.der
-
-# build folder
-/repos/BOSS/dist
-/repos/account/dist
-
-# config files
-/repos/BOSS/boss-config.json
-/repos/website/website-config.json
-/repos/account/account-config.json
