@@ -134,29 +134,31 @@ services:
       internal:
 
   website:
-    image: node:20-alpine
+    build: ./repos/website
+    depends_on:
+      - account
+      - mongodb
     restart: no
-    working_dir: /app
-    volumes:
-      - ./repos/website:/app 
-      - /app/node_modules
-      - .:/usr/src/app
     ports:
-      - "82:82"
+      - 127.0.0.1:82:82
+    volumes:
+      - type: bind
+        source: ./config/adminer-login-servers.php
+        target: /var/www/html/plugins-enabled/login-servers.php
+        read_only: true
     command: sh -c "npm install && npm run start"
     networks:
       internal:
 
   account:
-    image: node:20-alpine
+    build: ./repos/account
+    depends_on:
+      - nginx
+      - mongodb
+      - redis
     restart: no
-    working_dir: /app
-    volumes:
-      - ./repos/account:/app 
-      - /app/node_modules
-      - .:/usr/src/app
     ports:
-      - "83:83"
+      - 127.0.0.1:83:83
     command: sh -c "npm install && npm run start"
     networks:
       internal:
