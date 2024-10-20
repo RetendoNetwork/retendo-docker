@@ -22,3 +22,6 @@
 [submodule "repos/account"]
 	path = repos/account
 	url = https://github.com/RetendoNetwork/account.git
+[submodule "repos/pikmin-3"]
+	path = repos/pikmin-3
+	url = https://github.com/RetendoNetwork/pikmin-3
