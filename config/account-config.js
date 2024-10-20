@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const config = {
     http: {
-        port: 7070
+        port: 83
     },
     mongoose: {
         connection_string: "mongodb://localhost:27017/retendo_account",
