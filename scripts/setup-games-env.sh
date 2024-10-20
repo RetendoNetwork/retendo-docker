@@ -10,7 +10,7 @@ parse_arguments "$@"
 
 generate_password() {
     length=$1
-    head /dev/urandom | LC_ALL=C tr -dc "A-Za-z0-9@#$%&*" | head -c "$length"
+    head /dev/urandom | LC_ALL=C tr -dc "a-zA-Z0-9" | head -c "$length"
 }
 
 generate_hex() {
@@ -23,15 +23,14 @@ if [[ -z "$server_ip" ]]; then
     exit 1
 fi
 
-pikmin3_kerberos_password=$(generate_password 32)
-account_grpc_api_key=$(generate_password 32)
-
 compose_file="compose.yml"
 
 if [ -f "$compose_file" ]; then
     # PIKMIN ENV SERVER
-    sed -i "s/PN_PIKMIN3_SECURE_SERVER_HOST=.*/PN_PIKMIN3_SECURE_SERVER_HOST=${account_grpc_api_key}/" "$compose_file"  
-    sed -i "s|PN_PIKMIN3_POSTGRES_URI=.*|PN_PIKMIN3_POSTGRES_URI=postgres://postgres_pretendo:${pikmin3_kerberos_password}@postgres/pikmin3?sslmode=disable|" "$compose_file"
+    account_grpc_api_key=$(generate_password 32)
+    sed -i "s|PN_PIKMIN3_SECURE_SERVER_HOST=.*|PN_PIKMIN3_SECURE_SERVER_HOST=${account_grpc_api_key}|" "$compose_file" 
+    pikmin3_kerberos_password=$(generate_password 32)
+    sed -i "s|PN_PIKMIN3_POSTGRES_URI=.*|PN_PIKMIN3_POSTGRES_URI=postgres://postgres_retendo:${pikmin3_kerberos_password}@postgres/pikmin3?sslmode=disable|" "$compose_file"
     sed -i "s/PN_PIKMIN3_KERBEROS_PASSWORD=.*/PN_PIKMIN3_KERBEROS_PASSWORD=${pikmin3_kerberos_password}/" "$compose_file" 
     sed -i "s/PN_PIKMIN3_SECURE_SERVER_HOST=.*/PN_PIKMIN3_SECURE_SERVER_HOST=${server_ip}/" "$compose_file"   
 else
