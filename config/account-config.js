@@ -1,29 +1,44 @@
 const fs = require('fs');
 
 const config = {
-    config: {
-        port: 86,
-        aes_key: "AES_KEY"
+    http: {
+        port: 7070
     },
-
-    db: {
-        connection_string: "mongodb://127.0.0.1:27017/retendo_boss?replicaSet=rs",
+    mongoose: {
+        connection_string: "mongodb://localhost:27017/retendo_account",
         options: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            useNewUrlParser: true
         }
     },
-
+    redis: {
+        client: {
+            url: "redis://localhost:6379"
+        }
+    },
+    email: {
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+            user: "username",
+            pass: "password"
+        },
+        from: "Company Name <user@company.net>"
+    },
     s3: {
         endpoint: "nyc3.digitaloceanspaces.com",
         key: "ACCESS_KEY",
         secret: "ACCESS_SECRET"
     },
-
+    hcaptcha: {
+        secret: "0x0000000000000000000000000000000000000000"
+    },
     cdn: {
-        base_url: "https://cdn.retendo.online",
-        disk_path: ""
-    }
+        base_url: "https://local-cdn.example.com",
+        subdomain: "local-cdn",
+        disk_path: "/home/cedke/retendo-cdn"
+    },
+    website_base: "https://example.com"
 };
 
 const jsonConfig = JSON.stringify(config, null, 2);

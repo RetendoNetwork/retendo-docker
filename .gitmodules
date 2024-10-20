@@ -19,6 +19,3 @@
 [submodule "repos/SSSL-DNS"]
 	path = repos/SSSL-DNS
 	url = https://github.com/RetendoNetwork/SSSL-DNS
-[submodule "repos/account"]
-	path = repos/account
-	url = https://github.com/RetendoNetwork/account
