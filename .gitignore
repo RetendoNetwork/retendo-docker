@@ -9,3 +9,7 @@
 /repos/BOSS/boss-config.json
 /repos/website/website-config.json
 /repos/account/account-config.json
+
+# retendo files
+compose.yml.bak
+database-user.txt

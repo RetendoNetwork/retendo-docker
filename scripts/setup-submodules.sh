@@ -25,4 +25,4 @@ for submodule in $(git config --file "$GITMODULES_PATH" --get-regexp path | awk 
     mv "$submodule" "$REPOS_PATH/"
 done
 
-echo "Tous les sous-modules ont été déplacés dans le dossier repos."
+print_success "All submodules have been moved to the rest folder."

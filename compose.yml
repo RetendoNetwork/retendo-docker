@@ -88,7 +88,7 @@ services:
       internal:
     environment:
       - POSTGRES_USER=postgres_retendo
-      - POSTGRES_PASSWORD=x7VYXIZsctStdEkCeBRlUq7ENv53ZDBt
+      - POSTGRES_PASSWORD=
 
   adminer:
     image: adminer:latest
