@@ -50,6 +50,63 @@ services:
       - ME_CONFIG_MONGODB_URL=mongodb://mongodb:27017
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
 
+  redis:
+    image: redis:alpine
+    restart: no
+    volumes:
+      - type: volume
+        source: redis-data
+        target: /data
+    networks:
+      internal:
+    command: redis-server --save 60 1
+
+  redis-commander:
+    image: ghcr.io/joeferner/redis-commander:latest
+    depends_on:
+      - redis
+    restart: no
+    ports:
+      - 127.0.0.1:8086:8086
+    networks:
+      internal:
+    environment:
+      - PORT=8086
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+  
+  postgres:
+    image: postgres:alpine
+    restart: no
+    ports:
+      - 127.0.0.1:5432:5432
+    volumes:
+      - type: volume
+        source: postgres-database
+        target: /var/lib/postgresql/data
+    networks:
+      internal:
+    environment:
+      - POSTGRES_USER=postgres_retendo
+      - POSTGRES_PASSWORD=x7VYXIZsctStdEkCeBRlUq7ENv53ZDBt
+
+  adminer:
+    image: adminer:latest
+    depends_on:
+      - postgres
+    restart: no
+    ports:
+      - 127.0.0.1:8085:8080
+    volumes:
+      - type: bind
+        source: ./config/adminer-login-servers.php
+        target: /var/www/html/plugins-enabled/login-servers.php
+        read_only: true
+    networks:
+      internal:
+    environment:
+      - ADMINER_DEFAULT_SERVER=postgres
+
   boss:
     image: node:18-alpine
     restart: no
@@ -91,10 +148,7 @@ services:
       internal:
 
   account:
-    build: ./repos/account
-    depends_on:
-      - nginx
-      - mongodb
+    image: node:20-alpine
     restart: no
     working_dir: /app
     volumes:
@@ -102,7 +156,7 @@ services:
       - /app/node_modules
       - .:/usr/src/app
     ports:
-      - 127.0.0.1:83:83
+      - "83:83"
     command: sh -c "npm install && npm run start"
     networks:
       internal:
@@ -124,6 +178,8 @@ services:
 volumes:
   mitmproxy-retendo-data:
   mongodb-database:
+  redis-data:
+  postgres-database:
 
 networks:
   internal:

@@ -5,14 +5,14 @@ const config = {
         port: 83
     },
     mongoose: {
-        connection_string: "mongodb://127.0.0.1:27017/retendo_boss?replicaSet=rs",
+        connection_string: "mongodb://mongodb:27017/retendo_account?replicaSet=rs",
         options: {
             useNewUrlParser: true
         }
     },
     redis: {
         client: {
-            url: "redis://localhost:6379"
+            url: "redis://redis:6379"
         }
     },
     email: {
