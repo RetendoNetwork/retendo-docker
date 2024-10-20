@@ -118,7 +118,7 @@ error_handler() {
     print_error "The script $0 exited unexpectedly because an error occurred.${stacktrace[*]}"
 
     if [[ -z "${nested_script:-}" ]]; then
-        print_header "pretendo-docker commit $(git rev-parse --short HEAD)"
+        print_header "retendo-docker commit $(git rev-parse --short HEAD)"
 
         echo
         echo "General steps to troubleshoot the issue:"
