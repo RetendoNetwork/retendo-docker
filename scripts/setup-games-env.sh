@@ -63,4 +63,5 @@ Retendo Network database user server
 
 Postgres username: postgres_retendo
 Postgres password: $postgres_password
+Server IP address: $server_ip
 EOF

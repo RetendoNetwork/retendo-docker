@@ -9,7 +9,7 @@ print_info "Updating the project with the latest changes.."
 
 if git pull origin main; then
     if git status | grep -q "Your branch is up to date"; then
-        print_success "The server is already up to date."
+        print_info "The server is already up to date."
     else
         print_success "The server has been updated successfully."
     fi

@@ -89,7 +89,7 @@ print_stage "Configure the games environment."
 setup_games_env
 
 # print_stage "Compiling the Innoverse-patcher."
-# ./repos/Innoverse-patcher/build.sh
+# ./scripts/build-innoverse-patcher.sh
 
 print_stage "Setting up all containers."
 ./scripts/server-containers.sh
