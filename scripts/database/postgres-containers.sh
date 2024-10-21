@@ -17,4 +17,12 @@ run_command_until_success "Awaiting Postgres to become ready.." 5 \
 
 run_verbose docker compose exec postgres sh -c "$postgres_init_script"
 
+compose_no_progress up -d postgres
+if [[ $(docker compose exec postgres psql -At -U "$POSTGRES_USER" -d friends -c "SELECT 1 FROM information_schema.schemata WHERE schema_name = '3ds';") = "1" ]]; then
+    print_info "Migrating friends to the nex-go rewrite.."
+    friends_db=$(cat "$git_base_dir/scripts/database/friends-nex-go.sql")
+    # shellcheck disable=SC2046
+    docker compose exec postgres psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d friends -c "$friends_db" $(if_not_verbose --quiet)
+fi
+
 print_success "Postgres container is set up."
